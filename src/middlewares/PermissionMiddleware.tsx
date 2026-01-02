@@ -4,7 +4,7 @@ import { useNavigate } from "react-router";
 import { useAuth } from "src/utils/auth";
 
 type Props = {
-    children: ReactNode;
+    children?: ReactNode;
     codeName: string;
 }
 
