@@ -83,7 +83,7 @@ const AddGroup = () => {
             <Container maxWidth="lg">
                 <Stack maxWidth={700} spacing={3}>
                     <TextField
-                        label="Nome do Cargo"
+                        label="Nome do Cargo *"
                         fullWidth
                         value={nameInput}
                         onChange={(e) => setNameInput(e.target.value)}
