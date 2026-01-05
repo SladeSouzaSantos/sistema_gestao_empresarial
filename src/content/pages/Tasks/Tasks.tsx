@@ -1,0 +1,59 @@
+import { Container } from "@mui/material";
+import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
+import TasksTable from "src/components/TasksTable";
+import PageTitle from "src/components/PageTitle";
+import PageTitleWrapper from "src/components/PageTitleWrapper";
+import { PermissionMiddleware } from "src/middlewares/PermissionMiddleware";
+import { Task } from "src/models/Task";
+import { useRequests } from "src/utils/requests";
+
+const Tasks = () => {
+    const [requestLoading, setRequestLoading] = useState(true);
+    const [tasksData, setTasksData] = useState<Task[]>([]);
+
+    const {getTasks} = useRequests();
+
+    const handleGetTasks = async () => {
+        const response = await getTasks();
+
+        setTasksData(response.data.tasks);
+        setRequestLoading(false);
+    }
+
+    useEffect(() => {
+        handleGetTasks();
+    }, []);
+
+    return (
+        <PermissionMiddleware codeName="view_task">
+            <>
+                <Helmet>
+                    <title>Tarefas - Sistema de Gestão Empresarial</title>
+                </Helmet>
+                <PageTitleWrapper>
+                    <PageTitle
+                        heading="Tarefas"
+                        subHeading="Consulte as tarefas dos funcionários e execute ações nas mesmas."
+                    />
+                </PageTitleWrapper>
+            </>
+            
+            <Container 
+                maxWidth="xl"
+                sx={{ 
+                    marginX: requestLoading ? '-2.5%' : 0,
+                    transition: 'all 0.5s'
+                }}
+            >
+                <TasksTable
+                    refreshList={handleGetTasks}
+                    tasksList={tasksData}
+                />
+            </Container>
+        </PermissionMiddleware>
+    );
+
+}
+
+export default Tasks;
