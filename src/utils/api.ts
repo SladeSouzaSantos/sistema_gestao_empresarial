@@ -2,7 +2,7 @@ import axios, { AxiosError } from "axios";
 import { ApiError } from "src/models/Api";
 import { handleGetAccessToken } from "./auth";
 
-const apiBaseUrl = "http://localhost:8000/api/v1";
+const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
 
 export const useApi = async <TypeDataResponse>(
     endpoint: string,
