@@ -58,7 +58,7 @@ const AddGroup = () => {
     }, []);
 
     return (
-        <PermissionMiddleware codeName="add_group">
+        <PermissionMiddleware codeName="add_usergroup">
             <Helmet>
                 <title>Adicionar Cargo | Sistema de Gestão Empresarial</title>                
             </Helmet>

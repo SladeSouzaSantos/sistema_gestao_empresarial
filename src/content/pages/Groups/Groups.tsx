@@ -25,7 +25,7 @@ const Groups = () => {
     }, []);
 
     return (
-        <PermissionMiddleware codeName="view_group">
+        <PermissionMiddleware codeName="view_usergroup">
             <>
                 <Helmet>
                     <title>Cargos - Sistema de Gestão Empresarial</title>

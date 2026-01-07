@@ -68,7 +68,7 @@ const EditEmployee = () => {
     }, []);
 
     return (
-        <PermissionMiddleware codeName="change_emplyee">
+        <PermissionMiddleware codeName="change_employee">
             <Helmet>
                 <title>Editar Funcionário | Sistema de Gestão Empresarial</title>
             </Helmet>

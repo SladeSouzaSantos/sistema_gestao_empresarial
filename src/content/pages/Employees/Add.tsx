@@ -39,7 +39,7 @@ const AddEmployee = () => {
     }
 
     return (
-        <PermissionMiddleware codeName="add_emplyee">
+        <PermissionMiddleware codeName="add_employee">
             <Helmet>
                 <title>Adicionar Funcionário | Sistema de Gestão Empresarial</title>
             </Helmet>

@@ -69,7 +69,7 @@ const EditGroup = () => {
     }, []);
 
     return (
-        <PermissionMiddleware codeName="change_group">
+        <PermissionMiddleware codeName="change_usergroup">
             <Helmet>
                 <title>Editar Cargo | Sistema de Gestão Empresarial</title>                
             </Helmet>
